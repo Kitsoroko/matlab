@@ -1,0 +1,223 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Rostislavs Arhipovs</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2020-03-03"><meta name="DC.source" content="uzdlab3.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Rostislavs Arhipovs</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Laboratorijas darbs3.</a></li><li><a href="#3">sinusoida</a></li><li><a href="#4">sinusoida</a></li><li><a href="#5">Pirma constanta</a></li><li><a href="#6">Otra constanta</a></li><li><a href="#7">mainiga linija</a></li><li><a href="#8">Troksna signals</a></li><li><a href="#9">apvienosu visu viena vektora</a></li><li><a href="#10">Secinajums</a></li></ul></div><h2 id="1">Laboratorijas darbs3.</h2><p>1) uzzimet grafiku no bilde 2) funkcija ar datu filtraciju</p><pre class="codeinput"><span class="keyword">function</span> y = uzdlab3(t)
+</pre><pre class="codeinput"><span class="keyword">if</span> nargin == 0
+   t = 0:0.01:6; <span class="comment">% kopigais laiks</span>
+<span class="keyword">end</span>
+<span class="comment">% t = 0:0.01:6.5; % kopigais laiks</span>
+
+t_sinf=(t&gt;=0&amp;t&lt;1.5); t_sin = t(t_sinf);
+t_constf=(t&gt;=1.5&amp;t&lt;3); t_const=t(t_constf);
+t_consttf = (t&gt;=3&amp;t&lt;3.5); t_constt = t(t_consttf);
+t_sawf = (t&gt;=3.5&amp;t&lt;4); t_saw = t(t_sawf);
+t_noisef=(t&gt;=4&amp;t&lt;6); t_noise=t(t_noisef);
+
+
+<span class="comment">% t_saw = 0:0.01:0.5;</span>
+
+<span class="comment">% t_zero = 0.5:0.01:1.5;</span>
+
+
+<span class="comment">% t_const = 3.5:0.01:5;</span>
+
+<span class="comment">% t_noise = 5:0.01:6.5</span>
+</pre><h2 id="3">sinusoida</h2><h2 id="4">sinusoida</h2><pre class="codeinput">A0= 0; A=1.5;
+T = (3.5-1.5)/2
+f = 1/T; delay=1;
+t_sin = 0:0.01:1.5;
+y_sin=A0+A*sin(4*pi*f*(t_sin-delay));
+plot(t_sin,y_sin)
+hold <span class="string">on</span>
+axis([0 6.5 -2 2]) <span class="comment">%% komanda uzreiz jaieliek visus robezus visejam grafika!!</span>
+</pre><pre class="codeoutput">
+T =
+
+     1
+
+</pre><img vspace="5" hspace="5" src="uzdlab3_01.png" alt=""> <h2 id="5">Pirma constanta</h2><pre class="codeinput">t_const = 1.5:0.01:3;
+y_const = zeros(size(t_const));
+plot(t_const,y_const)
+</pre><img vspace="5" hspace="5" src="uzdlab3_02.png" alt=""> <h2 id="6">Otra constanta</h2><pre class="codeinput">t_constt = 3.0:0.01:3.5;
+y_constt = zeros(size(t_constt))+1.5;
+plot (t_constt,y_constt)
+</pre><img vspace="5" hspace="5" src="uzdlab3_03.png" alt=""> <h2 id="7">mainiga linija</h2><pre class="codeinput">t_saw = 3.5:0.01:4;
+k = (1-0)/(3.5-4)
+delay = 4;
+y_saw = k*(t_saw-delay);
+hold <span class="string">on</span>
+plot (t_saw,y_saw);
+</pre><pre class="codeoutput">
+k =
+
+    -2
+
+</pre><img vspace="5" hspace="5" src="uzdlab3_04.png" alt=""> <h2 id="8">Troksna signals</h2><pre class="codeinput">t_noise = 4:0.01:6;
+y_noise = 1.5*rand(size(t_noise))-0.75;
+plot(t_noise,y_noise)
+</pre><img vspace="5" hspace="5" src="uzdlab3_05.png" alt=""> <h2 id="9">apvienosu visu viena vektora</h2><p>t1 = [0 1 2 3]; t2 = [4 5]; t= [t1 t2] paradisies [0 1 2 3 4 5]</p><pre class="codeinput">t = [t_sin,t_const,t_constt,t_saw,t_noise];
+y = [y_sin,y_const,y_constt,y_saw,y_noise];
+plot(t,y);
+
+<span class="keyword">if</span> nargout == 0
+    plot(t,y);
+    y = []; <span class="comment">% lai nerada daudz ciparus</span>
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+ans =
+
+     []
+
+</pre><img vspace="5" hspace="5" src="uzdlab3_06.png" alt=""> <h2 id="10">Secinajums</h2><pre class="codeinput"><span class="comment">%Iemcijus zimet grafiku no bilde, ari taisit funkcijas.</span>
+<span class="comment">%ar jauniem komandiem.</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Rostislavs Arhipovs
+%% Laboratorijas darbs3.
+% 1) uzzimet grafiku no bilde
+% 2) funkcija ar datu filtraciju
+function y = uzdlab3(t)
+if nargin == 0
+   t = 0:0.01:6; % kopigais laiks
+end
+% t = 0:0.01:6.5; % kopigais laiks
+
+t_sinf=(t>=0&t<1.5); t_sin = t(t_sinf);
+t_constf=(t>=1.5&t<3); t_const=t(t_constf);
+t_consttf = (t>=3&t<3.5); t_constt = t(t_consttf);
+t_sawf = (t>=3.5&t<4); t_saw = t(t_sawf);
+t_noisef=(t>=4&t<6); t_noise=t(t_noisef);
+
+
+% t_saw = 0:0.01:0.5;
+
+% t_zero = 0.5:0.01:1.5;
+
+
+% t_const = 3.5:0.01:5;
+
+% t_noise = 5:0.01:6.5
+%% sinusoida
+
+%% sinusoida
+
+
+A0= 0; A=1.5;
+T = (3.5-1.5)/2
+f = 1/T; delay=1;
+t_sin = 0:0.01:1.5;
+y_sin=A0+A*sin(4*pi*f*(t_sin-delay));
+plot(t_sin,y_sin)
+hold on
+axis([0 6.5 -2 2]) %% komanda uzreiz jaieliek visus robezus visejam grafika!!
+%% Pirma constanta
+
+t_const = 1.5:0.01:3;
+y_const = zeros(size(t_const));
+plot(t_const,y_const)
+
+%% Otra constanta 
+
+t_constt = 3.0:0.01:3.5;
+y_constt = zeros(size(t_constt))+1.5;
+plot (t_constt,y_constt)
+%% mainiga linija 
+
+t_saw = 3.5:0.01:4;
+k = (1-0)/(3.5-4)
+delay = 4;
+y_saw = k*(t_saw-delay);
+hold on
+plot (t_saw,y_saw);
+
+%% Troksna signals
+
+t_noise = 4:0.01:6;
+y_noise = 1.5*rand(size(t_noise))-0.75;
+plot(t_noise,y_noise)
+
+%% apvienosu visu viena vektora
+% t1 = [0 1 2 3];
+% t2 = [4 5];
+% t= [t1 t2] paradisies [0 1 2 3 4 5]
+t = [t_sin,t_const,t_constt,t_saw,t_noise];
+y = [y_sin,y_const,y_constt,y_saw,y_noise];
+plot(t,y);
+
+if nargout == 0
+    plot(t,y); 
+    y = []; % lai nerada daudz ciparus
+end
+
+%% Secinajums
+
+%Iemcijus zimet grafiku no bilde, ari taisit funkcijas.
+%ar jauniem komandiem. 
+
+##### SOURCE END #####
+--></body></html>
